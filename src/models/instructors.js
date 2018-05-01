@@ -24,12 +24,12 @@ function create(name){
 }
 
 function update(instructorId, name){
-  return (
+  return (  //these parantheses are not necessary.
     db('instructors')
-    .update({ name })
-    .where({ id: instructorId })
-    .returning('*')
-    .then(function([data]){
+    .update({ name }) //This will insert the name provided into the database.
+    .where({ id: instructorId }) //Where is very important, with out it will update ALL THE NAMES!!!
+    .returning('*') // instead of giving back info about the insertion(INSERT 0 1), this code will return what was added.
+    .then(function([data]){ //This is a deconstruction that will strip the data out of the array that it comes in. THis makes it easier on your controller page
       return data
     })
   )
@@ -38,11 +38,11 @@ function update(instructorId, name){
 function remove(instructorId){
   return (
     db('instructors')
-    .del()
+    .del() // this actually deletes it from the table in the database
     .where({ id: instructorId })
     .returning('*')
     .then(function([data]){
-      delete data.id
+      delete data.id //only delete the id from the data
       return data
     })
   )

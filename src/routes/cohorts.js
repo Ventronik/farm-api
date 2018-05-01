@@ -7,27 +7,27 @@ const instructorsController = require('../controllers/instructors')
 // Basic CRUD Methods
 //////////////////////////////////////////////////////////////////////////////
 
-// router.get('/', cohortsController.getAll)
+router.get('/', cohortsController.getAll)
 
-// router.get('/:cohortId', cohortsController.getOne)
+router.get('/:cohortId', cohortsController.getOne)
 
-// router.post('/', cohortsController.create)
+router.post('/', cohortsController.create)
 
-// router.put('/:cohortId',
-            // cohortsController.checkIfCohortExists,
-            // cohortsController.update)
+router.put('/:cohortId',
+            cohortsController.checkIfCohortExists,
+            cohortsController.update)
 
-// router.delete('/:cohortId',
-            // cohortsController.checkIfCohortExists,
-            // cohortsController.remove)
+router.delete('/:cohortId',
+            cohortsController.checkIfCohortExists,
+            cohortsController.remove)
 
 //////////////////////////////////////////////////////////////////////////////
 // Nested CRUD Methods
 //////////////////////////////////////////////////////////////////////////////
 
-// router.get('/:cohortId/students',
-//             cohortsController.checkIfCohortExists,
-//             cohortsController.getAllStudents)
+router.get('/:cohortId/students',
+            cohortsController.checkIfCohortExists,
+            cohortsController.getAllStudents)
 
 router.get('/:cohortId/instructors',
             cohortsController.checkIfCohortExists,
